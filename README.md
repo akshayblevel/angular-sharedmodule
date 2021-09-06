@@ -1,4 +1,4 @@
-# angular-featuremodule
+# angular-sharedmodule
 
 employee.ts (parent)
 
