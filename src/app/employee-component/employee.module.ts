@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { EmployeeComponentComponent } from './employee-component.component';
-import { StarComponent } from '../shared/star/star.component';
 import { EmployeedetailComponentComponent } from './employeedetail-component/employeedetail-component.component';
 import { EmployeedetailGuard } from './employeedetail-component/employeedetail.guard';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
     RouterModule.forChild([
       { path: 'employees', component: EmployeeComponentComponent },
       {
@@ -19,12 +14,9 @@ import { EmployeedetailGuard } from './employeedetail-component/employeedetail.g
         component: EmployeedetailComponentComponent,
         canActivate: [EmployeedetailGuard]
       }
-    ])
+    ]),
+    SharedModule
   ],
-  declarations: [
-    EmployeeComponentComponent,
-    StarComponent,
-    EmployeedetailComponentComponent
-  ]
+  declarations: [EmployeeComponentComponent, EmployeedetailComponentComponent]
 })
 export class EmployeeModule {}
